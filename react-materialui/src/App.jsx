@@ -1,7 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import { Routes, Route, Link, Navigate, useMatch } from "react-router-dom";
-import { Container, Alert } from "@mui/material";
+import {
+	Container,
+	Alert,
+	AppBar,
+	Toolbar,
+	Button,
+	IconButton,
+} from "@mui/material";
 import Home from "./components/Home";
 import Note from "./components/Note";
 import Notes from "./components/Notes";
@@ -53,36 +60,47 @@ const App = () => {
 	return (
 		<Container>
 			{message && <Alert severity="success">{message}</Alert>}
-			<div>
-				<Link
-					style={padding}
-					to="/"
-				>
-					home
-				</Link>
-				<Link
-					style={padding}
-					to="/notes"
-				>
-					notes
-				</Link>
-				<Link
-					style={padding}
-					to="/users"
-				>
-					users
-				</Link>
-				{user ? (
-					<em>{user} logged in</em>
-				) : (
-					<Link
-						style={padding}
-						to="/login"
+			<AppBar position="static">
+				<Toolbar>
+					<IconButton
+						edge="start"
+						color="inherit"
+						aria-label="menu"
+					></IconButton>
+					<Button
+						color="inherit"
+						component={Link}
+						to="/"
 					>
-						login
-					</Link>
-				)}
-			</div>
+						home
+					</Button>
+					<Button
+						color="inherit"
+						component={Link}
+						to="/notes"
+					>
+						notes
+					</Button>
+					<Button
+						color="inherit"
+						component={Link}
+						to="/users"
+					>
+						users
+					</Button>
+					{user ? (
+						<em>{user} logged in</em>
+					) : (
+						<Button
+							color="inherit"
+							component={Link}
+							to="/login"
+						>
+							login
+						</Button>
+					)}
+				</Toolbar>
+			</AppBar>
 
 			<Routes>
 				<Route
