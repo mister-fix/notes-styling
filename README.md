@@ -1,3 +1,3 @@
 # React + UI Frameworks
 
-Styling React applications with different styling and UI frameworks.
+Styling a React Router based application with different styling and UI frameworks.
