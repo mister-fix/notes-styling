@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Routes, Route, Link, Navigate, useMatch } from "react-router-dom";
+import { Container } from "@mui/material";
 import Home from "./components/Home";
 import Note from "./components/Note";
 import Notes from "./components/Notes";
@@ -45,7 +46,7 @@ const App = () => {
 		: null;
 
 	return (
-		<div>
+		<Container>
 			<div>
 				<Link
 					style={padding}
@@ -112,7 +113,7 @@ const App = () => {
 				<br />
 				<em>Note app, Department of Computer Science 2023</em>
 			</div>
-		</div>
+		</Container>
 	);
 };
 
