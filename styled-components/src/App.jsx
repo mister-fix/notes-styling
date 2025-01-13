@@ -1,11 +1,28 @@
 import React from "react";
 import { useState } from "react";
+import styled from "styled-components";
 import { Routes, Route, Link, Navigate, useMatch } from "react-router-dom";
 import Home from "./components/Home";
 import Note from "./components/Note";
 import Notes from "./components/Notes";
 import Users from "./components/Users";
 import Login from "./components/Login";
+
+const Page = styled.div`
+	padding: 1em;
+	background: papayawhip;
+`;
+
+const Navigation = styled.div`
+	background: BurlyWood;
+	padding: 1em;
+`;
+
+const Footer = styled.div`
+	background: Chocolate;
+	padding: 1em;
+	margin-top: 1em;
+`;
 
 const App = () => {
 	const [notes, setNotes] = useState([
@@ -45,8 +62,8 @@ const App = () => {
 		: null;
 
 	return (
-		<div>
-			<div>
+		<Page>
+			<Navigation>
 				<Link
 					style={padding}
 					to="/"
@@ -75,7 +92,7 @@ const App = () => {
 						login
 					</Link>
 				)}
-			</div>
+			</Navigation>
 
 			<Routes>
 				<Route
@@ -108,11 +125,11 @@ const App = () => {
 					element={<Home />}
 				/>
 			</Routes>
-			<div>
-				<br />
+
+			<Footer>
 				<em>Note app, Department of Computer Science 2023</em>
-			</div>
-		</div>
+			</Footer>
+		</Page>
 	);
 };
 
